@@ -1,0 +1,72 @@
+body {
+    background-color: #e7dae9;
+}
+
+.custom-center {
+    width: 50%;
+    margin: 0 auto;
+}
+
+div {
+    border: black;
+}
+
+.logo-font {
+    color: #995ca2;
+    font-family: Verdana;
+    font-size: 20px;
+}
+
+.custom-btn {
+    background-color: #995ca2;
+    border: #6c446c;
+    color: white;
+}
+
+.custom-btn:hover {
+    background-color: #573b5b !important;
+    color: white;
+}
+
+.cadastro {
+    font-size: 14px;
+    margin-top: 8rem;
+}
+
+.nav-link {
+    color: #7a4485 !important;
+    margin-left: 2rem;
+}
+
+.text-format-primary {
+    color: #7a4485 !important;
+}
+
+.text-format-secondary {
+    color: #aa7cb3 !important;
+}
+
+.text-format-ter {
+    color: #bc99c5 !important;
+}
+
+#card-exercicios {
+    width: 100% !important;
+    height: 100vh;
+}
+
+.chart-border {
+    border: 0.5px solid #aa7cb3;
+}
+
+@media only screen and (max-width: 540px) {
+    .card-content {
+        padding: 0px !important;
+        margin: 1rem 0px 0px 0px !important;
+    }
+}
+
+.form-cadastro {
+    font-weight: bold;
+    margin-left: -1.4rem;
+}
