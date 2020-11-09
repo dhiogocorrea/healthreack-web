@@ -10,32 +10,32 @@
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link " href="home.jsp"><strong><i class="fas fa-home"></i> Início</strong> </a>
+                    <a class="nav-link " href="home.jsp"><strong><i class="fas fa-home"></i> Inï¿½cio</strong> </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false"><strong><i class="fas fa-utensils"></i>
-                            Alimentação</strong></a>
+                            Alimentaï¿½ï¿½o</strong></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-format-primary" href="adicionar-refeicao.jsp"><i
                                 class="fas fa-plus-square"></i>
-                            Adicionar refeição</a>
+                            Adicionar refeiï¿½ï¿½o</a>
                         <a class="dropdown-item text-format-primary" href="listagem-refeicoes.jsp"><i
                                 class="fas fa-clipboard-list"></i>
-                            Mostrar refeições</a>
+                            Mostrar refeiï¿½ï¿½es</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false"><strong><i class="fas fa-running"></i>
-                            Exercícios</strong></a>
+                            Exercï¿½cios</strong></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-format-primary" href="adicionar-exercicio.jsp"><i
                                 class="fas fa-plus-square"></i>
-                            Adicionar exercício</a>
+                            Adicionar exercï¿½cio</a>
                         <a class="dropdown-item text-format-primary" href="listagem-exercicios.jsp"><i
                                 class="fas fa-clipboard-list"></i>
-                            Mostrar exercícios </a>
+                            Mostrar exercï¿½cios </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -78,6 +78,8 @@
                     <a class="dropdown-item text-format-primary" href="conta.jsp"><i class="fas fa-address-card"></i>
                         Sua
                         conta</a>
+                    <a class="dropdown-item text-format-primary" href="alterar-senha.jsp"><i class="fas fa-lock"></i>
+                        Alterar senha</a>
                     <a class="dropdown-item text-format-primary" href="mailto:guilherme.santos97@outlook.com.br"><i
                             class="fas fa-headset"></i> Suporte</a>
                     <a class="dropdown-item text-format-primary" href="index.jsp"><i class="fas fa-sign-out-alt"></i>
