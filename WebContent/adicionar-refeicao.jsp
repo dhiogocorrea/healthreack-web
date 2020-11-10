@@ -69,7 +69,8 @@
                             </button>
 
                             <div class="text-right"> <button type="button" style="margin-top: 2rem;"
-                                    class="btn btn-primary custom-btn pull-right">Adicionar refeição</button></div>
+                                    class="btn btn-primary custom-btn pull-right">Adicionar refeição</button>
+                            </div>
                     </form>
                 </div>
             </div>

@@ -15,27 +15,27 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false"><strong><i class="fas fa-utensils"></i>
-                            Alimenta��o</strong></a>
+                            Alimentação</strong></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-format-primary" href="adicionar-refeicao.jsp"><i
                                 class="fas fa-plus-square"></i>
                             Adicionar refei��o</a>
                         <a class="dropdown-item text-format-primary" href="listagem-refeicoes.jsp"><i
                                 class="fas fa-clipboard-list"></i>
-                            Mostrar refei��es</a>
+                            Mostrar refeições</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false"><strong><i class="fas fa-running"></i>
-                            Exerc�cios</strong></a>
+                            Exercícios</strong></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-format-primary" href="adicionar-exercicio.jsp"><i
                                 class="fas fa-plus-square"></i>
-                            Adicionar exerc�cio</a>
+                            Adicionar exercício</a>
                         <a class="dropdown-item text-format-primary" href="listagem-exercicios.jsp"><i
                                 class="fas fa-clipboard-list"></i>
-                            Mostrar exerc�cios </a>
+                            Mostrar exercícios </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">

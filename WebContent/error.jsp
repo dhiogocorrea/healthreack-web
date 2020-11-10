@@ -28,7 +28,7 @@
                     <div style="font-size: 20px;" class="card-body text-center text-format-primary">
                         Parece que você tentou fazer algo que não deu muito certo, não?
                         <br>
-                            Mas não se preocupe, estaremos lhe redirecionando para a tela inicial em breve.
+                        Mas não se preocupe, estaremos lhe redirecionando para a tela inicial em breve.
                     </div>
                     <div id="forward-div"></div>
                 </div>

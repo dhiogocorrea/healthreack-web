@@ -34,7 +34,7 @@
                         <div class="form-group row">
                             <label for="inputPeso" class="col-sm-2 col-form-label">Peso (Kg)</label>
                             <div class="col-sm-10">
-                                <input type="number" step=".1" " class=" form-control" id="inputPeso">
+                                <input type="number" step=".1" class=" form-control" id="inputPeso">
                             </div>
                         </div>
                         <div class="text-right"> <button type="button" style="margin-top: 2rem;"

@@ -15,7 +15,7 @@
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
             <div class="card">
                 <div class="card-body text-center">
-                    <h5 class="text-format-secondary"><i class="fas fa-running"></i> Exercí­cios</h5>
+                    <h5 class="text-format-secondary"><i class="fas fa-running"></i> Exercícios</h5>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@
                         <thead>
                             <tr>
                                 <th scope="col" class="text-format-primary">Data</th>
-                                <th scope="col" class="text-format-primary">Exercí­cio</th>
+                                <th scope="col" class="text-format-primary">Exercício</th>
                                 <th scope="col" class="text-format-primary">Calorias</th>
                                 <th scope="col" class="text-format-primary">Ações</th>
                             </tr>

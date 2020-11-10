@@ -112,9 +112,6 @@
                                     <input type="number" step=".1" value="70.2" class="form-control" id="inputPeso">
                                 </div>
                             </div>
-
-
-
                         </form>
                     </div>
                     <div class="modal-footer">

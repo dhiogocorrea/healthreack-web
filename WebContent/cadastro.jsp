@@ -94,9 +94,9 @@
                         	
                         	<div class="form-group row">
                                 <label for="inputAltura"
-                                    class="col-sm-4 col-form-label form-cadastro text-format-primary">Altura:</label>
+                                       class="col-sm-4 col-form-label form-cadastro text-format-primary">Altura:</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" type="number" step=".1" placeholder="ex: 1,72" type="number" id=""inputAltura"">
+                                    <input class="form-control" type="number" step=".1" placeholder="ex: 1,72" type="number" id=inputAltura">
                                 </div>
                             </div>
 

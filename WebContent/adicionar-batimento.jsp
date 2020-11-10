@@ -34,7 +34,7 @@
                         <div class="form-group row">
                             <label for="inputBatimento" class="col-sm-2  col-form-label">Batimentos</label>
                             <div class="col-sm-10">
-                                <input type="number" class=" form-control" id="inputPeso">
+                                <input type="number" class=" form-control" id="inputBatimento">
                             </div>
                         </div>
                         <div class="text-right"> <button type="button" style="margin-top: 2rem;"

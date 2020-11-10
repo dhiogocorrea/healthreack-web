@@ -51,7 +51,8 @@
                         </div>
 
                         <div class="text-right"> <button type="button" style="margin-top: 2rem;"
-                                class="btn btn-primary custom-btn pull-right">Adicionar exercício</button></div>
+                                class="btn btn-primary custom-btn pull-right">Adicionar exercício</button>
+                        </div>
 
                     </form>
                 </div>
