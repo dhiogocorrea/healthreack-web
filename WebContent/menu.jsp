@@ -10,32 +10,32 @@
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link " href="home.jsp"><strong><i class="fas fa-home"></i> Inï¿½cio</strong> </a>
+                    <a class="nav-link " href="home.jsp"><strong><i class="fas fa-home"></i> Início</strong> </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false"><strong><i class="fas fa-utensils"></i>
-                            AlimentaÃ§Ã£o</strong></a>
+                            Alimentação</strong></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-format-primary" href="adicionar-refeicao.jsp"><i
                                 class="fas fa-plus-square"></i>
-                            Adicionar refeiï¿½ï¿½o</a>
+                            Adicionar refeição</a>
                         <a class="dropdown-item text-format-primary" href="listagem-refeicoes.jsp"><i
                                 class="fas fa-clipboard-list"></i>
-                            Mostrar refeiÃ§Ãµes</a>
+                            Mostrar refeições</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false"><strong><i class="fas fa-running"></i>
-                            ExercÃ­cios</strong></a>
+                            Exercícios</strong></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item text-format-primary" href="adicionar-exercicio.jsp"><i
                                 class="fas fa-plus-square"></i>
-                            Adicionar exercÃ­cio</a>
+                            Adicionar exercício</a>
                         <a class="dropdown-item text-format-primary" href="listagem-exercicios.jsp"><i
                                 class="fas fa-clipboard-list"></i>
-                            Mostrar exercÃ­cios </a>
+                            Mostrar exercícios </a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
