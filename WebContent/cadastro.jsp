@@ -14,16 +14,17 @@
 <body>
     <div class="container-fluid" style="margin-top:2rem;">
         <div class="mx-auto col-md-4 col-sm-12">
-            <form class="card">
+            <form class="card" action="usuario" method="post">
                 <div class="card-body text-center">
                     <img src="resources/img/logo.png" width="72" height="72">
-                    <h4 class="logo-font">Health Track</h1>
+                    <h4 class="logo-font">Health Track</h4>
                         <div style="margin-top: 3rem;">
+                        	<input type="hidden" value="cadastrar" name="acao" />
                             <div class="form-group row">
                                 <label for="inputNome"
                                     class="col-sm-4 col-form-label form-cadastro text-format-primary">Nome:</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" type="text" id="inputNome">
+                                    <input class="form-control" name="nome" type="text" id="inputNome">
                                 </div>
                             </div>
                             
@@ -31,21 +32,21 @@
                                 <label for="inputSobrenome"
                                     class="col-sm-4 col-form-label form-cadastro text-format-primary">Sobrenome:</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" type="text" id="inputSobrenome">
+                                    <input class="form-control" name="sobrenome" type="text" id="inputSobrenome">
                                 </div>
                             </div>
                             
                             <div class="form-group row">
 	                            <label for="labelDataNascimento" class="col-sm-4 col-form-label form-cadastro text-format-primary">Data de Nascimento:</label>
 	                            <div class="col-sm-12">
-	                                <input type="text" class="form-control" id="labelDataNascimento">
+	                                <input type="text" name="dtNascimento" class="form-control" id="labelDataNascimento">
 	                            </div>
                         	</div>
                         	
                         	<div class="form-group row">
 	                            <label for="labelCPF" class="col-sm-4 col-form-label form-cadastro text-format-primary">CPF:</label>
 	                            <div class="col-sm-12">
-	                                <input type="text" class="form-control" id="labelCPF">
+	                                <input type="text" name="cpf" class="form-control" id="labelCPF">
 	                            </div>
                         	</div>
 
@@ -53,7 +54,7 @@
                                 <label for="inputEmail"
                                     class="col-sm-4 col-form-label form-cadastro text-format-primary">E-mail:</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" placeholder="@exemplo.com" type="text" id="inputEmail">
+                                    <input class="form-control" name="email" placeholder="@exemplo.com" type="text" id="inputEmail">
                                 </div>
                             </div>
 
@@ -61,7 +62,7 @@
                                 <label for="inputSenha"
                                     class="col-sm-4 col-form-label form-cadastro text-format-primary">Senha:</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control"  type="password" id="inputSenha">
+                                    <input class="form-control" name="senha"  type="password" id="inputSenha">
                                 </div>
                             </div>
 
@@ -77,7 +78,7 @@
                                 <label for="inputSexo"
                                     class="col-sm-4 col-form-label form-cadastro text-format-primary">Sexo:</label>
                                 <div class="col-sm-12">
-                                    <select class="form-control" id="inputSexo">
+                                    <select name="sexo" class="form-control" id="inputSexo">
                                         <option>Selecione</option>
                                         <option>Masculino</option>
                                         <option>Feminino</option>                                        
@@ -88,29 +89,30 @@
                             <div class="form-group row">
 	                            <label for="labelTelefone" class="col-sm-4 col-form-label form-cadastro text-format-primary">Telefone:</label>
 	                            <div class="col-sm-12">
-	                                <input type="text" class="form-control" id="labelTelefone">
+	                                <input type="text" name="telefone" class="form-control" id="labelTelefone">
 	                            </div>
                         	</div>
-                        	
-                        	<div class="form-group row">
-                                <label for="inputAltura"
-                                       class="col-sm-4 col-form-label form-cadastro text-format-primary">Altura:</label>
-                                <div class="col-sm-12">
-                                    <input class="form-control" type="number" step=".1" placeholder="ex: 1,72" type="number" id=inputAltura">
-                                </div>
-                            </div>
 
                             <div class="form-group row">
                                 <label for="inputPeso"
                                     class="col-sm-4 col-form-label form-cadastro text-format-primary">Peso:</label>
                                 <div class="col-sm-12">
-                                    <input class="form-control" type="number" step=".1" placeholder="ex: 70,0" type="number" id="inputPeso">
+                                    <input class="form-control" name="peso" type="number" step=".1" placeholder="ex: 70,0" type="number" id="inputPeso" />
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="inputPlano"
+                                    class="col-sm-4 col-form-label form-cadastro text-format-primary">Plano:</label>
+                                <div class="col-sm-12">
+                                    <input class="form-control" name="plano" value="BRONZE" disabled />
                                 </div>
                             </div>
 
                         </div>
-                        <button style="margin-top: 1.5rem;" type="button" class="btn col-5 custom-btn" type="submit"
+                        <button style="margin-top: 1.5rem;" type="submit" class="btn col-5 custom-btn" type="submit"
                             onclick="window.location='home.jsp'">Cadastrar</button>
+                </div>
             </form>
         </div>
     </div>

@@ -12,7 +12,7 @@ public interface Dao<T> {
     
     int insert(T t);
     
-    void update(T t, String[] params);
+    boolean update(int id, T t);
     
-    void delete(T t);
+    boolean delete(int id);
 }

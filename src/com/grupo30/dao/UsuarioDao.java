@@ -136,13 +136,53 @@ public class UsuarioDao implements Dao<Usuario>{
     }
 
     @Override
-    public void update(Usuario usuario, String[] params) {
-        // TODO Auto-generated method stub
+    public boolean update(int id, Usuario usuario) {
+    	connection = ConnectionFactory.getConnection();
+        if (connection == null) return false;
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_USU(nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,telefone) VALUES (?, ?, ?, ?, ?, ?, ?, ?) WHERE codUsuario=" + id);
+            stmt.setString(1, usuario.getNome());
+            stmt.setString(2, usuario.getSobrenome());
+            stmt.setString(3, usuario.getCpf());
+            stmt.setString(4, usuario.getSexo());
+            stmt.setString(5, usuario.getEmail());
+            stmt.setString(6, usuario.getSenha());
+            stmt.setDate(7, new java.sql.Date(usuario.getDtNascimento().getTime()));
+            stmt.setInt(10, usuario.getNumeroTelefone());
+
+            stmt.executeUpdate();
+
+            stmt.close();
+            connection.close();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     @Override
-    public void delete(Usuario usuario) {
-        // TODO Auto-generated method stub
+    public boolean delete(int id) {
+    	connection = ConnectionFactory.getConnection();
+        if (connection == null) return false;
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM T_HTK_USU WHERE codUsuario=" + id);
+
+            stmt.executeUpdate();
+
+            stmt.close();
+            connection.close();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 	@Override
