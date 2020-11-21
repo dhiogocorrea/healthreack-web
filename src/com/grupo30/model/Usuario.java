@@ -34,6 +34,10 @@ public class Usuario extends Pessoa {
 		super(codPessoa, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone);
 	}
 
+	public Usuario(){
+		super();
+	}
+
 	public Refeicao getRefeicao() {
 		return refeicao;
 	}

@@ -64,6 +64,8 @@ public abstract class Pessoa {
 		this.numeroTelefone = numeroTelefone;
 	}
 
+	public Pessoa(){}
+
 	public int getCodPessoa() {
 		return codPessoa;
 	}
@@ -72,7 +74,10 @@ public abstract class Pessoa {
 	public int getCpf() {
 		return cpf;
 	}
- 
+
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
 
 	public String getNome() {
 		return nome;
