@@ -32,13 +32,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <<label for="inputNewPass" class="col-sm-2 col-form-label">Nova senha</label>
+                        <label for="inputNewPass" class="col-sm-2 col-form-label">Nova senha</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="password" id="inputNewPass">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <<label for="inputRenewPass" class="col-sm-2 col-form-label">Repita a senha</label>
+                        <label for="inputRenewPass" class="col-sm-2 col-form-label">Repita a senha</label>
                         <div class="col-sm-10">
                             <input class="form-control" type="password" id="inputRenewPass">
                         </div>
