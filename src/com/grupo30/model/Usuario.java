@@ -2,6 +2,7 @@ package com.grupo30.model;
 import com.grupo30.enums.Plano;
 
 import java.util.Date;
+import java.util.List;
 import java.util.ArrayList;
 
 /**
@@ -10,27 +11,35 @@ import java.util.ArrayList;
 public class Usuario extends Pessoa {
 	
 	/**
+	 * O código do usuario
+	 */
+    private int codUsuario;
+	/**
 	 * Refeiçao do usuário
 	 */
-	private Refeicao refeicao;
+	private List<Refeicao> refeicao;
 	/**
 	 * Pesos do usuário
 	 */
-    private ArrayList<Peso> peso = new ArrayList<Peso>();
+    private List<Peso> peso = new ArrayList<Peso>();
     /**
 	 * Batimentos Cardíacos do usuário
 	 */
-    private ArrayList<BatimentoCardiaco> batimentoCardiaco = new ArrayList<BatimentoCardiaco>();
+    private List<BatimentoCardiaco> batimentoCardiaco = new ArrayList<BatimentoCardiaco>();
     /**
 	 * Atividade do usuário
 	 */
-    private ArrayList<Atividade> atividade = new ArrayList<Atividade>();
+    private List<Atividade> atividade = new ArrayList<Atividade>();
+    /**
+   	 * Atividade do usuário
+   	 */
+       private List<Alimento> alimento = new ArrayList<Alimento>();
     /**
 	 * Plano do usuário
 	 */
     private Plano plano;
 
-	public Usuario(int codPessoa, String nome, String sobrenome, int cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone) {
+	public Usuario(int codUsuario, int codPessoa, String nome, String sobrenome, String cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone) {
 		super(codPessoa, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone);
 	}
 
@@ -38,31 +47,44 @@ public class Usuario extends Pessoa {
 		super();
 	}
 
-	public Refeicao getRefeicao() {
+	public int getCodUsuario() {
+		return codUsuario;
+	}
+
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
+	}
+
+	public List<Refeicao> getRefeicao() {
 		return refeicao;
 	}
-	public void setRefeicao(Refeicao refeicao) {
+	public void setRefeicao(List<Refeicao> refeicao) {
 		this.refeicao = refeicao;
 	}
-	public ArrayList<Peso> getPeso() {
+	public List<Peso> getPeso() {
 		return peso;
 	}
-	public void setPeso(Peso peso) {
-		this.peso.add(peso);
+	public void setPeso(List<Peso> peso) {
+		this.peso = peso;
 	}
-	public ArrayList<BatimentoCardiaco> getBatimentoCardiaco() {
+	public List<BatimentoCardiaco> getBatimentoCardiaco() {
 		return batimentoCardiaco;
 	}
-	public void setBatimentoCardiaco(BatimentoCardiaco batimentoCardiaco) {
-		this.batimentoCardiaco.add(batimentoCardiaco);
+	public void setBatimentoCardiaco(List<BatimentoCardiaco> batimentoCardiaco) {
+		this.batimentoCardiaco = batimentoCardiaco;
 	}
-	public ArrayList<Atividade> getAtividade() {
+	public List<Atividade> getAtividade() {
 		return atividade;
 	}
-	public void setAtividade(Atividade atividade) {
-		this.atividade.add(atividade);
+	public void setAtividade(List<Atividade> atividade) {
+		this.atividade = atividade;
 	}
-	
+	public List<Alimento> getAlimento() {
+		return alimento;
+	}
+	public void setAlimento(List<Alimento> alimento) {
+		this.alimento = alimento;
+	}
 	public Plano getPlano() {
 		return plano;
 	}

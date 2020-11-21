@@ -14,7 +14,7 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 	private Connection connection;
 
 	@Override
-	public BatimentoCardiaco get(long id) {
+	public BatimentoCardiaco get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -86,6 +86,12 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 	public void delete(BatimentoCardiaco t) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<BatimentoCardiaco> getByUser(int codUsuario) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

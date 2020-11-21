@@ -14,7 +14,7 @@ public class TipoAtividadeDao implements Dao<TipoAtividade>{
     private Connection connection;
 
     @Override
-    public TipoAtividade get(long id) {
+    public TipoAtividade get(int id) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -75,4 +75,10 @@ public class TipoAtividadeDao implements Dao<TipoAtividade>{
     public void delete(TipoAtividade tipoAtividade) {
         // TODO Auto-generated method stub
     }
+
+	@Override
+	public List<TipoAtividade> getByUser(int codUsuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

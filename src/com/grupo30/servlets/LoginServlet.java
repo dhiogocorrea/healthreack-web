@@ -1,16 +1,33 @@
 package com.grupo30.servlets;
 
-@WebServlet("/login")
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.grupo30.dao.UsuarioDao;
+
+@WebServlet("/")
 public class LoginServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String login = request.getParameter("login");
+	private static final long serialVersionUID = 1L;
+	
+	private UsuarioDao usuarioDao = new UsuarioDao();
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
         String senha = request.getParameter("senha");
 
-        if(login.equals("userx") && senha.equals("xxxxx")){
-            response.sendRedirect("sucesso.html");
+        Integer codUsuario = usuarioDao.login(email, senha);
+        
+        if(codUsuario != null){
+        	request.setAttribute("codUsuario", codUsuario);
+        	request.getRequestDispatcher("home.jsp").forward(request, response);
         } else{
-            response.sendRedirect("acesso_negado.html");
+            response.sendRedirect("error.html");
         }
     }
 }

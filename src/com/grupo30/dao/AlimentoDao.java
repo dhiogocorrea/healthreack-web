@@ -14,7 +14,7 @@ public class AlimentoDao implements Dao<Alimento> {
 	private Connection connection;
 
 	@Override
-	public Alimento get(long id) {
+	public Alimento get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -84,6 +84,12 @@ public class AlimentoDao implements Dao<Alimento> {
 	public void delete(Alimento t) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Alimento> getByUser(int codUsuario) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

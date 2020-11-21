@@ -14,7 +14,7 @@ public class PesoDao implements Dao<Peso> {
 	private Connection connection;
 
 	@Override
-	public Peso get(long id) {
+	public Peso get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -76,6 +76,12 @@ public class PesoDao implements Dao<Peso> {
 	public void delete(Peso t) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<Peso> getByUser(int codUsuario) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

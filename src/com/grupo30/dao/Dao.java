@@ -4,9 +4,11 @@ import java.util.List;
 
 public interface Dao<T> {
     
-    T get(long id);
+    T get(int id);
     
     List<T> getAll();
+    
+    List<T> getByUser(int codUsuario);
     
     int insert(T t);
     

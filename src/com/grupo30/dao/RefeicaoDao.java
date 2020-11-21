@@ -15,7 +15,7 @@ public class RefeicaoDao implements Dao<Refeicao>{
     private Connection connection;
 
     @Override
-    public Refeicao get(long id) {
+    public Refeicao get(int id) {
         // TODO Auto-generated method stub
         return null;
     }
@@ -76,4 +76,10 @@ public class RefeicaoDao implements Dao<Refeicao>{
     public void delete(Refeicao refeicao) {
         // TODO Auto-generated method stub
     }
+
+	@Override
+	public List<Refeicao> getByUser(int codUsuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

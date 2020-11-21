@@ -20,7 +20,7 @@ public abstract class Pessoa {
 	/**
 	 * CPF da pessoa
 	 */
-	private int cpf;
+	private String cpf;
 	/**
 	 * Sexo da pessoa
 	 */
@@ -50,7 +50,7 @@ public abstract class Pessoa {
 	 */
 	private int numeroTelefone;
 
-	public Pessoa(int codPessoa, String nome, String sobrenome, int cpf, String sexo, String email, String senha, Date dtNascimento, Date dtRegistro, Date dtAssinatura, int numeroTelefone) {
+	public Pessoa(int codPessoa, String nome, String sobrenome, String cpf, String sexo, String email, String senha, Date dtNascimento, Date dtRegistro, Date dtAssinatura, int numeroTelefone) {
 		this.codPessoa = codPessoa;
 		this.nome = nome;
 		this.sobrenome = sobrenome;
@@ -71,11 +71,11 @@ public abstract class Pessoa {
 	}
 
 	 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
