@@ -27,9 +27,14 @@ public class UsuarioServlet extends HttpServlet {
         usuario.setEmail(request.getParameter("email"));
 
         UsuarioDao usuarioDao = new UsuarioDao();
-        usuarioDao.insert(usuario);
+        int inserted = usuarioDao.insert(usuario);
         
-        request.setAttribute("msg", "Cadastro concluído com sucesso!");
+        if (inserted == -1) {
+        	request.setAttribute("error", "Ocorreu um erro ao incluir o seu cadastro. Tente novamente.");
+        } else {
+        	request.setAttribute("msg", "Cadastro concluído com sucesso!");
+        }
+        
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
     
