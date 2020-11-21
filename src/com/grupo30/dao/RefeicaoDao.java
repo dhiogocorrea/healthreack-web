@@ -28,11 +28,11 @@ public class RefeicaoDao implements Dao<Refeicao>{
         List<Refeicao> allRefeicao = new ArrayList<Refeicao>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT cod_refeicao,tp_refeicao,dt_refeicao FROM T_HTK_REFCONSU");
+            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,dtRefeicao FROM T_HTK_REFCONSU");
             ResultSet res = stmt.executeQuery();
 
             while(res.next()) {
-                Refeicao r = new Refeicao(res.getInt("cod_refeicao"), TipoRefeicao.valueOf(res.getString("tp_refeicao")), res.getDate("dt_refeicao"));
+                Refeicao r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDate("dtRefeicao"));
                 allRefeicao.add(r);
             }
             stmt.close();
@@ -50,7 +50,7 @@ public class RefeicaoDao implements Dao<Refeicao>{
         if (connection == null) return -1;
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_REFCONSU(cod_refeicao, tp_refeicao, dt_refeicao) VALUES (SQ_REFEICAO.NEXTVAL, ?, ?)");
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_REFCONSU(codRefeicao, tipoRefeicao, dtRefeicao) VALUES (SQ_REFEICAO.NEXTVAL, ?, ?)");
             stmt.setString(1, refeicao.getTipoRefeicao().toString());
             stmt.setDate(2, new java.sql.Date(refeicao.getDtRefeicao().getTime()));
 
@@ -68,16 +68,16 @@ public class RefeicaoDao implements Dao<Refeicao>{
     }
 
     @Override
-    public void update(Refeicao refeicao, String[] params) {
-        // TODO Auto-generated method stub
+    public boolean update(int id, Refeicao refeicao) {
+        return false;
     }
 
     @Override
-    public void delete(Refeicao refeicao) {
-        // TODO Auto-generated method stub
+    public boolean delete(int id) {
+        return false;
     }
 
-	@Override
+    @Override
 	public List<Refeicao> getByUser(int codUsuario) {
 		// TODO Auto-generated method stub
 		return null;

@@ -39,8 +39,8 @@ public class Usuario extends Pessoa {
 	 */
     private Plano plano;
 
-	public Usuario(int codUsuario, int codPessoa, String nome, String sobrenome, String cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone) {
-		super(codPessoa, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone);
+	public Usuario(int codUsuario, String nome, String sobrenome, String cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone, Plano plano) {
+		super(codUsuario, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone, plano);
 	}
 
 	public Usuario(){

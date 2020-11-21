@@ -27,16 +27,16 @@ public class AlimentoDao implements Dao<Alimento> {
 		List<Alimento> allAlimentos = new ArrayList<Alimento>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida"
-					+ " FROM T_HTK_ALIM_CONSU");
+			PreparedStatement stmt = connection.prepareStatement("SELECT codAlimento, nome, qtConsumida, qtCalorias,dtConsumida"
+					+ " FROM T_HTK_ALIM");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
-				Alimento alim = new Alimento(res.getInt("cod_alimento"),
+				Alimento alim = new Alimento(res.getInt("codAlimento"),
 											 res.getString("nome"),
-											 res.getDouble("qt_consumida"),
-											 res.getInt("qt_calorias"),
-											 res.getDate("dt_consumida"));
+											 res.getDouble("qtConsumida"),
+											 res.getInt("qtCalorias"),
+											 res.getDate("dtConsumida"));
 				allAlimentos.add(alim);
 			}
 			stmt.close();
@@ -54,7 +54,7 @@ public class AlimentoDao implements Dao<Alimento> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ALIM_CONSU(cod_alimento,nome,qt_consumida,qt_calorias,dt_consumida)"
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ALIM(codAlimento, nome, qtConsumida, qtCalorias, dtConsumida)"
 					+ " VALUES (SQ_ALIMENTO.NEXTVAL, ?, ?, ?,?)");
 			stmt.setString(1, t.getNome());
 			stmt.setDouble(2, t.getQtConsumida());
@@ -75,15 +75,13 @@ public class AlimentoDao implements Dao<Alimento> {
 	}
 
 	@Override
-	public void update(Alimento t, String[] params) {
-		// TODO Auto-generated method stub
-		
+	public boolean update(int id, Alimento alimento) {
+		return false;
 	}
 
 	@Override
-	public void delete(Alimento t) {
-		// TODO Auto-generated method stub
-		
+	public boolean delete(int id) {
+		return false;
 	}
 
 	@Override
