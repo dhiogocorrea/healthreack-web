@@ -18,11 +18,11 @@ public class RefeicaoDao implements Dao<Refeicao>{
     public Refeicao get(int id) {
     	Refeicao r = null;
     	try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,dtRefeicao FROM T_HTK_REFCONSU WHERE codRefeicao=" + id);
+            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,calorias,dtRefeicao FROM T_HTK_REFCONSU WHERE codRefeicao=" + id);
             ResultSet res = stmt.executeQuery();
 
             if(res.next()) {
-                r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDate("dtRefeicao"));
+                r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDouble("calorias"), res.getDate("dtRefeicao"));
             }
             stmt.close();
             connection.close();
@@ -41,11 +41,11 @@ public class RefeicaoDao implements Dao<Refeicao>{
         List<Refeicao> allRefeicao = new ArrayList<Refeicao>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,dtRefeicao FROM T_HTK_REFCONSU");
+            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,calorias,dtRefeicao FROM T_HTK_REFCONSU");
             ResultSet res = stmt.executeQuery();
 
             while(res.next()) {
-                Refeicao r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDate("dtRefeicao"));
+                Refeicao r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDouble("calorias"), res.getDate("dtRefeicao"));
                 allRefeicao.add(r);
             }
             stmt.close();
@@ -63,7 +63,7 @@ public class RefeicaoDao implements Dao<Refeicao>{
         if (connection == null) return -1;
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_REFCONSU(codRefeicao, tipoRefeicao, dtRefeicao) VALUES (SQ_REFEICAO.NEXTVAL, ?, ?)");
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_REFCONSU(codRefeicao, tipoRefeicao, calorias, dtRefeicao) VALUES (SQ_REFEICAO.NEXTVAL, ?, ?, ?)");
             stmt.setString(1, refeicao.getTipoRefeicao().toString());
             stmt.setDate(2, new java.sql.Date(refeicao.getDtRefeicao().getTime()));
 
@@ -98,11 +98,11 @@ public class RefeicaoDao implements Dao<Refeicao>{
         List<Refeicao> allRefeicao = new ArrayList<Refeicao>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,dtRefeicao,codUsuario FROM T_HTK_REFCONSU WHERE codUsuario=" + codUsuario);
+            PreparedStatement stmt = connection.prepareStatement("SELECT codRefeicao,tipoRefeicao,calorias,dtRefeicao,codUsuario FROM T_HTK_REFCONSU WHERE codUsuario=" + codUsuario);
             ResultSet res = stmt.executeQuery();
 
             while(res.next()) {
-                Refeicao r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDate("dtRefeicao"));
+                Refeicao r = new Refeicao(res.getInt("codRefeicao"), TipoRefeicao.valueOf(res.getString("tipoRefeicao")), res.getDouble("calorias"), res.getDate("dtRefeicao"));
                 allRefeicao.add(r);
             }
             stmt.close();

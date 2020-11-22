@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Início</title>
+	<title>Adicionar refeição</title>
 	<%@ include file="header.jsp" %>
 </head>
 <body>
@@ -23,18 +23,18 @@
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
             <div class="card">
                 <div class="card-body ">
-                    <form>
+                    <form action="refeicao" method="post">
                         <div class="form-group row">
                             <label for="inputData" class="col-sm-2 col-form-label">Data</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="date" value="2020-06-09" id="inputData">
+                                <input class="form-control" name="dtRefeicao" type="date" placeholder="dd/MM/yyyy" id="inputData">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputExercicio" class="col-sm-2 col-form-label">Refeição</label>
+                            <label for="inputRefeicao" class="col-sm-2 col-form-label">Refeição</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="inputExercicio">
+                                <select name="tipoRefeicao" class="form-control" id="inputRefeicao">
                                     <option>Café da manhã</option>
                                     <option>Almoço</option>
                                     <option>Lanche</option>
@@ -42,35 +42,17 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <div class="form-group row">
+                            <label for="inputCalorias" class="col-sm-2 col-form-label">Calorias</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="calorias" class="form-control" id="inputCalorias">
+                            </div>
+                        </div>
 
-                        <div style="border-top: 0.5px solid gray; margin-top: 1rem; padding: 10px;">
-                            <h5 class="text-format-primary">Alimento 1</h5>
-                            <div class="form-group row">
-                                <label for="inputAlimento1" class="col-sm-4 col-form-label">Alimento</label>
-                                <div class="col-sm-8">
-                                    <input class="form-control" type="text" id="inputAlimento1">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputQuantidade1" class="col-sm-4 col-form-label">Quantidade (g)</label>
-                                <div class="col-sm-8">
-                                    <input class="form-control" type="number" id="inputQuantidade1">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputCalorias1" class="col-sm-4 col-form-label">Calorias</label>
-                                <div class="col-sm-8">
-                                    <input class="form-control" readonly type="number" id="inputCalorias1">
-                                </div>
-                            </div>
-
-                            <button type="button" style="border: none;" class="text-format-primary">
-                                <i class="fas fa-plus-circle"></i>
-                            </button>
-
-                            <div class="text-right"> <button type="button" style="margin-top: 2rem;"
-                                    class="btn btn-primary custom-btn pull-right">Adicionar refeição</button>
-                            </div>
+                        <div class="text-right"> <button type="button" style="margin-top: 2rem;"
+                                class="btn btn-primary custom-btn pull-right">Adicionar refeição</button>
+                        </div>
                     </form>
                 </div>
             </div>

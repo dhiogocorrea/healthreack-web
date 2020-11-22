@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Início</title>
+	<title>Adicionar batimento</title>
 	<%@ include file="header.jsp" %>
 </head>
 <body>
@@ -23,18 +23,32 @@
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
             <div class="card">
                 <div class="card-body ">
-                    <form>
+                    <form action="batimentocardiaco" method="post">
                         <div class="form-group row">
                             <label for="inputData" class="col-sm-2 col-form-label">Data</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="date" value="2020-06-10" id="inputData">
+                                <input class="form-control" placeholder="dd/MM/yyyy" type="date" name="dtMedicao" id="inputData">
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputBatimento" class="col-sm-2  col-form-label">Batimentos</label>
+                            <label for="inputBatimento" class="col-sm-2  col-form-label">Batimentos (Mínimo)</label>
                             <div class="col-sm-10">
-                                <input type="number" class=" form-control" id="inputBatimento">
+                                <input type="number" class=" form-control" name="batimentoMinimo" id="inputBatimentoMinimo">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="inputBatimento" class="col-sm-2  col-form-label">Batimentos Batimentos (Máximo)</label>
+                            <div class="col-sm-10">
+                                <input type="number" class=" form-control" name="batimentoMaximo" id="inputBatimentoMaximo">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label for="inputBatimento" class="col-sm-2  col-form-label">Batimentos Batimentos (Médio)</label>
+                            <div class="col-sm-10">
+                                <input type="number" class=" form-control" name="batimentoMedio" id="inputBatimentoMedio">
                             </div>
                         </div>
                         <div class="text-right"> <button type="button" style="margin-top: 2rem;"
