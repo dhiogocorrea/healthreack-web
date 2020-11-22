@@ -99,6 +99,14 @@ public class AlimentoDao implements Dao<Alimento> {
 
 	@Override
 	public boolean delete(int id) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("DELETE FROM T_HTK_ALIM WHERE codAlimento=" + id);
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		return false;
 	}
 
