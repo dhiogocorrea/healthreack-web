@@ -30,17 +30,6 @@
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th colspan="3" class="text-format-primary">
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <input class="form-control" type="date" value="2020-06-09" id="inputData">
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-
-                                </th>
-                            </tr>
-                            <tr>
                             	<th scope="col" class="text-format-primary">Data Refeição</th>
                                 <th scope="col" class="text-format-primary">Refeição</th>
                                 <th scope="col" class="text-format-primary">Calorias</th>
