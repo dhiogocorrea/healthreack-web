@@ -11,20 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.grupo30.dao.AlimentoDao;
-import com.grupo30.model.Alimento;
+import com.grupo30.dao.RefeicaoDao;
+import com.grupo30.enums.TipoRefeicao;
+import com.grupo30.model.Refeicao;
 
-@WebServlet("/alimento")
-public class AlimentoServlet extends HttpServlet {
+@WebServlet("/refeicao")
+public class RefeicaoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private AlimentoDao alimentoDao;
+	private RefeicaoDao refeicaoDao;
 	private DateFormat dtf;
 	
 	public void init() throws ServletException {
 		super.init();
-		alimentoDao = new AlimentoDao();
+		refeicaoDao = new RefeicaoDao();
 		dtf = new SimpleDateFormat("dd/MM/yyyy");
 	}
 
@@ -54,27 +55,25 @@ public class AlimentoServlet extends HttpServlet {
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	if (request.getParameter("codAlimento") != null) {
-	    	int codAlimento = Integer.parseInt(request.getParameter("codAlimento"));
-	    	Alimento alimento = alimentoDao.get(codAlimento);
-	    	request.setAttribute("alimento", alimento);
+    	if (request.getParameter("codRefeicao") != null) {
+	    	int codRefeicao = Integer.parseInt(request.getParameter("codRefeicao"));
+	    	Refeicao refeicao = refeicaoDao.get(codRefeicao);
+	    	request.setAttribute("refeicao", refeicao);
     	} else {
     		int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
-    		request.setAttribute("alimentos", alimentoDao.getByUser(codUsuario));
+    		request.setAttribute("refeicoes", refeicaoDao.getByUser(codUsuario));
     	}
     }
     
     protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
-    	Alimento alimento = new Alimento();
-    	alimento.setDtConsumida(dtf.parse(request.getParameter("dtConsumida")));
-    	alimento.setNome(request.getParameter("nome"));
-    	alimento.setQtCalorias(Integer.parseInt(request.getParameter("qtCalorias")));
-    	alimento.setQtConsumida(Double.parseDouble(request.getParameter("qtConsumida")));
+    	Refeicao refeicao = new Refeicao();
+    	refeicao.setDtRefeicao(dtf.parse(request.getParameter("dtRefeicao")));
+    	refeicao.setTipoRefeicao(TipoRefeicao.valueOf(request.getParameter("tipoRefeicao")));
     	
-        int inserted = alimentoDao.insert(alimento);
-
+    	int inserted = refeicaoDao.insert(refeicao);
+    
         if (inserted == -1) {
-        	request.setAttribute("error", "Ocorreu um erro ao incluir o alimneto. Tente novamente.");
+        	request.setAttribute("error", "Ocorreu um erro ao incluir a refeição. Tente novamente.");
         } else {
         	request.setAttribute("msg", "Cadastro inserido com sucesso!");
         }
@@ -83,18 +82,16 @@ public class AlimentoServlet extends HttpServlet {
     }
     
     protected void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
-    	int codAlimento = Integer.parseInt(request.getParameter("codAlimento"));
+    	int codRefeicao = Integer.parseInt(request.getParameter("codRefeicao"));
     	
-    	Alimento alimento = new Alimento();
-    	alimento.setDtConsumida(dtf.parse(request.getParameter("dtConsumida")));
-    	alimento.setNome(request.getParameter("nome"));
-    	alimento.setQtCalorias(Integer.parseInt(request.getParameter("qtCalorias")));
-    	alimento.setQtConsumida(Double.parseDouble(request.getParameter("qtConsumida")));
+    	Refeicao refeicao = new Refeicao();
+    	refeicao.setDtRefeicao(dtf.parse(request.getParameter("dtRefeicao")));
+    	refeicao.setTipoRefeicao(TipoRefeicao.valueOf(request.getParameter("tipoRefeicao")));
     	
-        boolean updated = alimentoDao.update(codAlimento, alimento);
+        boolean updated = refeicaoDao.update(codRefeicao, refeicao);
 
         if (!updated) {
-        	request.setAttribute("error", "Ocorreu um erro ao editar o alimneto. Tente novamente.");
+        	request.setAttribute("error", "Ocorreu um erro ao editar a refeição. Tente novamente.");
         } else {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");
         }
@@ -103,12 +100,12 @@ public class AlimentoServlet extends HttpServlet {
     }
     
     protected void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	int codAlimento = Integer.parseInt(request.getParameter("codAlimento"));
+    	int codRefeicao = Integer.parseInt(request.getParameter("codRefeicao"));
     	
-    	boolean deleted = alimentoDao.delete(codAlimento);
+    	boolean deleted = refeicaoDao.delete(codRefeicao);
     	
     	if (!deleted) {
-        	request.setAttribute("error", "Ocorreu um erro ao excluir o alimneto. Tente novamente.");
+        	request.setAttribute("error", "Ocorreu um erro ao excluir a refeicao. Tente novamente.");
         } else {
         	request.setAttribute("msg", "Cadastro excluído com sucesso!");
         }

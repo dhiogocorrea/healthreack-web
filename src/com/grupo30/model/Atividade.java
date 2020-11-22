@@ -23,6 +23,8 @@ public class Atividade {
      */
     private Date dtAtividade;
 
+    public Atividade() {}
+
     public Atividade(int codAtividade, String nome, int duracaoAtividade, Date dtAtividade) {
         this.codAtividade = codAtividade;
         this.nome = nome;

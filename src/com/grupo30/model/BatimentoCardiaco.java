@@ -26,6 +26,8 @@ public class BatimentoCardiaco {
      * A data da medição
      */
     private Date dtMedicao;
+    
+    public BatimentoCardiaco() {}
 
     public BatimentoCardiaco(int codBatimentoCardiaco, int batimentoMinimo, int batimentoMaximo, int batimentoMedio, Date dtMedicao) {
         this.codBatimentoCardiaco = codBatimentoCardiaco;

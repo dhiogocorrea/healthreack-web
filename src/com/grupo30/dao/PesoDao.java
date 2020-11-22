@@ -15,8 +15,21 @@ public class PesoDao implements Dao<Peso> {
 
 	@Override
 	public Peso get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Peso p = null;
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem FROM peso WHERE codPeso=" + id);
+			ResultSet res = stmt.executeQuery();
+
+			if(res.next()) {
+				p = new Peso(res.getInt("codPeso"), res.getDouble("valor"), res.getDate("dtPesagem"));
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return p;
 	}
 
 	@Override
@@ -27,7 +40,7 @@ public class PesoDao implements Dao<Peso> {
 		List<Peso> allPesos = new ArrayList<Peso>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT cod_peso,valor,dt_pesagem FROM peso");
+			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem FROM peso");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
@@ -49,7 +62,7 @@ public class PesoDao implements Dao<Peso> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(cod_peso, valor, dt_pesagem) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(codPeso, valor, dtPesagem) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
 			stmt.setDouble(1, t.getValor());
 			stmt.setDate(2, new java.sql.Date(t.getDtPesagem().getTime()));
 
@@ -67,21 +80,39 @@ public class PesoDao implements Dao<Peso> {
 	}
 
 	@Override
-	public void update(Peso t, String[] params) {
+	public boolean update(int id, Peso t) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
-	public void delete(Peso t) {
+	public boolean delete(int id) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
 	public List<Peso> getByUser(int codUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		connection = ConnectionFactory.getConnection();
+		if (connection == null) return null;
+		
+		List<Peso> allPesos = new ArrayList<Peso>();
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem,codUsuario FROM peso WHERE codUsuario=" + codUsuario);
+			ResultSet res = stmt.executeQuery();
+
+			while(res.next()) {
+				Peso p = new Peso(res.getInt("codPeso"), res.getDouble("valor"), res.getDate("dtPesagem"));
+				allPesos.add(p);
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return allPesos;
 	}
 
 }

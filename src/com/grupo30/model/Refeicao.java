@@ -13,6 +13,8 @@ public class Refeicao {
     private int codRefeicao;
     private TipoRefeicao tipoRefeicao;
     private Date dtRefeicao;
+    
+    public Refeicao() {}
 
     public Refeicao(int codRefeicao, TipoRefeicao tipoRefeicao, Date dtRefeicao) {
         this.codRefeicao = codRefeicao;

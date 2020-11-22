@@ -15,8 +15,26 @@ public class AlimentoDao implements Dao<Alimento> {
 
 	@Override
 	public Alimento get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Alimento alim = null;
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codAlimento, nome, qtConsumida, qtCalorias,dtConsumida"
+					+ " FROM T_HTK_ALIM WHERE codlimento=" + id);
+			ResultSet res = stmt.executeQuery();
+
+			if(res.next()) {
+				alim = new Alimento(res.getInt("codAlimento"),
+											 res.getString("nome"),
+											 res.getDouble("qtConsumida"),
+											 res.getInt("qtCalorias"),
+											 res.getDate("dtConsumida"));
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return alim;
 	}
 
 	@Override
@@ -86,8 +104,31 @@ public class AlimentoDao implements Dao<Alimento> {
 
 	@Override
 	public List<Alimento> getByUser(int codUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		connection = ConnectionFactory.getConnection();
+		if (connection == null) return null;
+		
+		List<Alimento> allAlimentos = new ArrayList<Alimento>();
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codAlimento, nome, qtConsumida, qtCalorias,dtConsumida, codUsuario"
+					+ " FROM T_HTK_ALIM WHERE codUsuario=" + codUsuario);
+			ResultSet res = stmt.executeQuery();
+
+			while(res.next()) {
+				Alimento alim = new Alimento(res.getInt("codAlimento"),
+											 res.getString("nome"),
+											 res.getDouble("qtConsumida"),
+											 res.getInt("qtCalorias"),
+											 res.getDate("dtConsumida"));
+				allAlimentos.add(alim);
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return allAlimentos;
 	}
 
 }

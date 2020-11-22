@@ -82,7 +82,6 @@ public class UsuarioServlet extends HttpServlet {
         peso.add(p);
         usuario.setPeso(peso);
 
-        UsuarioDao usuarioDao = new UsuarioDao();
         int inserted = usuarioDao.insert(usuario);
 
         if (inserted == -1) {
@@ -104,8 +103,6 @@ public class UsuarioServlet extends HttpServlet {
         usuario.setCpf(request.getParameter("cpf"));
         usuario.setSexo(request.getParameter("sexo"));
         usuario.setEmail(request.getParameter("email"));
-
-        UsuarioDao usuarioDao = new UsuarioDao();
 
         if(usuarioDao.update(codUsuario, usuario)) {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");

@@ -15,8 +15,28 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 
 	@Override
 	public BatimentoCardiaco get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		BatimentoCardiaco bat_card = null;
+		
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codBatimentoCardiaco,batimentoMinimo,"
+					+ "batimentoMaximo,batimentoMedio,dtMedicao"
+					+ " FROM T_HTK_BATIMPROVA WHERE codBatimentoCardiaco=" + id);
+			ResultSet res = stmt.executeQuery();
+
+			if(res.next()) {
+				bat_card = new BatimentoCardiaco(res.getInt("codBatimentoCardiaco"),
+															       res.getInt("batimentoMinimo"),
+															       res.getInt("batimentoMaximo"),
+															       res.getInt("batimentoMedio"),
+															       res.getDate("dtMedicao"));
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return bat_card;
 	}
 
 	@Override
@@ -27,17 +47,17 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 		List<BatimentoCardiaco> allBatimentoCardiacos = new ArrayList<BatimentoCardiaco>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT cod_batimento_cardiaco,batimento_minimo,"
-					+ "batimento_maximo,batimento_medio,dt_medicao"
+			PreparedStatement stmt = connection.prepareStatement("SELECT codBatimentoCardiaco,batimentoMinimo,"
+					+ "batimentoMaximo,batimentoMedio,dtMedicao"
 					+ " FROM T_HTK_BATIMPROVA");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
-				BatimentoCardiaco bat_card = new BatimentoCardiaco(res.getInt("cod_batimento_cardiaco"),
-															       res.getInt("batimento_minimo"),
-															       res.getInt("batimento_maximo"),
-															       res.getInt("batimento_medio"),
-															       res.getDate("dt_medicao"));
+				BatimentoCardiaco bat_card = new BatimentoCardiaco(res.getInt("codBatimentoCardiaco"),
+															       res.getInt("batimentoMinimo"),
+															       res.getInt("batimentoMaximo"),
+															       res.getInt("batimentoMedio"),
+															       res.getDate("dtMedicao"));
 				allBatimentoCardiacos.add(bat_card);
 			}
 			stmt.close();
@@ -55,8 +75,8 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_BATIMPROVA(cod_batimento_cardiaco,batimento_minimo,"
-					+ "batimento_maximo,batimento_medio,dt_medicao)"
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_BATIMPROVA(codBatimentoCardiaco,batimentoMinimo,"
+					+ "batimentoMaximo,batimentoMedio,dtMedicao)"
 					+ " VALUES (SQ_BATIMENTO_CARDIACO.NEXTVAL, ?, ?, ?, ?)");
 			stmt.setInt(1, t.getBatimentoMinimo());
 			stmt.setInt(2, t.getBatimentoMaximo());
@@ -77,21 +97,45 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 	}
 
 	@Override
-	public void update(BatimentoCardiaco t, String[] params) {
+	public boolean update(int id, BatimentoCardiaco t) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
-	public void delete(BatimentoCardiaco t) {
+	public boolean delete(int id) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
 	public List<BatimentoCardiaco> getByUser(int codUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		connection = ConnectionFactory.getConnection();
+		if (connection == null) return null;
+		
+		List<BatimentoCardiaco> allBatimentoCardiacos = new ArrayList<BatimentoCardiaco>();
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codBatimentoCardiaco,batimentoMinimo,"
+					+ "batimentoMaximo,batimentoMedio,dtMedicao, codUsuario"
+					+ " FROM T_HTK_BATIMPROVA WHERE codUsuario=" + codUsuario);
+			ResultSet res = stmt.executeQuery();
+
+			while(res.next()) {
+				BatimentoCardiaco bat_card = new BatimentoCardiaco(res.getInt("codBatimentoCardiaco"),
+															       res.getInt("batimentoMinimo"),
+															       res.getInt("batimentoMaximo"),
+															       res.getInt("batimentoMedio"),
+															       res.getDate("dtMedicao"));
+				allBatimentoCardiacos.add(bat_card);
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return allBatimentoCardiacos;
 	}
 
 }

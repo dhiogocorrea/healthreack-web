@@ -27,6 +27,8 @@ public class Alimento {
      * A data em que foi consumido o alimento
      */
     private Date dtConsumida;
+    
+    public Alimento() {}
 
     public Alimento(int codAlimento, String nome, Double qtConsumida, int qtCalorias, Date dtConsumida) {
         this.codAlimento = codAlimento;

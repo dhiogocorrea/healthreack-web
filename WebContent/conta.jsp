@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,16 +22,21 @@
         </div>
 
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
-            <form>
-                <div class="card">
+        	<c:if test="${not empty msg }">
+        		<div class="alert alert-success">${msg}</div>
+        	</c:if>
+        	<c:if test="${not empty error }">
+        		<div class="alert alert-error">${error}</div>
+        	</c:if>
+            <form class="card" action="usuario" method="post">
+            		<input type="hidden" value="editar" name="acao" />
                     <div class="card-body ">
-
                         <div class="form-group row">
                             <label for="labelNome" class="col-sm-3 col-form-label">Nome:</label>
                             <div class="col-sm-9">
                                 <input type="text" style="font-weight: bold;"
                                     class="form-control text-format-primary"
-                                    value="Guilherme de Oliveira" id="labelNome">
+                                    value="${user.nome}" id="labelNome">
                             </div>
                         </div>
                         
@@ -39,16 +45,15 @@
                             <div class="col-sm-9">
                                 <input type="text" style="font-weight: bold;"
                                     class="form-control text-format-primary"
-                                    value="Santos" id="labelSobrenome">
+                                    value="${user.sobrenome}" id="labelSobrenome">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="labelDataNascimento" class="col-sm-3 col-form-label">Data de Nascimento:</label>
                             <div class="col-sm-9">
-                                <input type="text" style="font-weight: bold;"
-                                    class="form-control text-format-primary"
-                                    value="06/08/1992" id="labelDataNascimento">
+                                <input type="text" style="font-weight: bold;" class="form-control text-format-primary"
+                                    value='<fmt:formatDate value="${user.dtNascimento}" pattern="dd/MM/yyyy" />' id="labelDataNascimento">
                             </div>
                         </div>
                         
@@ -57,14 +62,14 @@
                             <div class="col-sm-9">
                                 <input type="text" style="font-weight: bold;"
                                     class="form-control text-format-primary"
-                                    value="405.180.970-64" id="labelCPF">
+                                    value="${user.cpf}" id="labelCPF">
                             </div>
                         </div>
                         
                         <div class="form-group row">
                             <label for="labelSexo" class="col-sm-3 col-form-label">Sexo</label>
                             <div class="col-sm-9">
-                                <select class="form-control" id="labelSexo">
+                                <select value="${user.sexo} class="form-control" id="labelSexo">
                                     <option>Masculino</option>
                                     <option>Feminino</option>
                                 </select>
@@ -77,7 +82,7 @@
                             <div class="col-sm-9">
                                 <input type="text" style="font-weight: bold;"
                                     class="form-control text-format-primary"
-                                    value="guilherme.santos07@outlook.com.br" id="labelEmail">
+                                    value="${user.email}" id="labelEmail">
                             </div>
                         </div>
                         
@@ -86,7 +91,7 @@
                             <div class="col-sm-9">
                                 <input type="text" style="font-weight: bold;"
                                     class="form-control text-format-primary"
-                                    value="(16) 99999-5431" id="labelTelefone">
+                                    value="${user.telefone}" id="labelTelefone">
                             </div>
                         </div>
 
@@ -94,12 +99,12 @@
                             <label for="labelPlano" class="col-sm-3 col-form-label">Plano:</label>
                             <div class="col-sm-9">
                                 <input type="text" style="font-weight: bold;" readonly
-                                    class="form-control-plaintext text-format-primary" value="Premium" id="labelPlano">
+                                    class="form-control-plaintext text-format-primary" value="${user.plano}" id="labelPlano">
                             </div>
                         </div>
                         
-                        <div class="text-right"> <a href="home.jsp" style="margin-top: 2rem;"
-                                class="btn btn-primary custom-btn pull-right"><i class="fas fa-save"></i> Atualizar dados</a>
+                        <div class="text-right">
+                        <button type="submit" style="margin-top: 2rem;" class="btn btn-primary custom-btn pull-right"><i class="fas fa-save"></i> Atualizar dados</button>
                     </div>
                 </div>
             </form>

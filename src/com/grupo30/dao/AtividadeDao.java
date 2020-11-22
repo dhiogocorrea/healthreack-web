@@ -16,8 +16,25 @@ public class AtividadeDao implements Dao<Atividade> {
 
 	@Override
 	public Atividade get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Atividade ativ = null;
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codAtividade,nome,duracaoAtividade,dtAtividade"
+					+ " FROM T_HTK_ATIV WHERE codAtividade=" + id);
+			ResultSet res = stmt.executeQuery();
+
+			while(res.next()) {
+				ativ = new Atividade(res.getInt("codAtividade"),
+								     res.getString("nome"),
+								     res.getInt("duracaoAtividade"),
+								     res.getDate("dtAtividade"));
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return ativ;
 	}
 
 	@Override
@@ -28,15 +45,15 @@ public class AtividadeDao implements Dao<Atividade> {
 		List<Atividade> allAtividades = new ArrayList<Atividade>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT cod_atividade,nome,duracao_atividade,dt_atividade"
+			PreparedStatement stmt = connection.prepareStatement("SELECT codAtividade,nome,duracaoAtividade,dtAtividade"
 					+ " FROM T_HTK_ATIV");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
-				Atividade ativ = new Atividade(res.getInt("cod_atividade"),
+				Atividade ativ = new Atividade(res.getInt("codAtividade"),
 											   res.getString("nome"),
-											   res.getInt("duracao_atividade"),
-											   res.getDate("dt_atividade"));
+											   res.getInt("duracaoAtividade"),
+											   res.getDate("dtAtividade"));
 				allAtividades.add(ativ);
 			}
 			stmt.close();
@@ -54,7 +71,7 @@ public class AtividadeDao implements Dao<Atividade> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ATIV(cod_atividade,nome,duracao_atividade,dt_atividade)"
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_ATIV(codAtividade,nome,duracaoAtividade,dtAtividade)"
 					+ " VALUES (SQ_ATIVIDADE.NEXTVAL, ?, ?, ?)");
 			stmt.setString(1, t.getNome());
 			stmt.setDouble(2, t.getDuracaoAtividade());
@@ -74,21 +91,43 @@ public class AtividadeDao implements Dao<Atividade> {
 	}
 
 	@Override
-	public void update(Atividade t, String[] params) {
+	public boolean update(int id, Atividade t) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
-	public void delete(Atividade t) {
+	public boolean delete(int id) {
 		// TODO Auto-generated method stub
-		
+		return false;
 	}
 
 	@Override
 	public List<Atividade> getByUser(int codUsuario) {
-		// TODO Auto-generated method stub
-		return null;
+		connection = ConnectionFactory.getConnection();
+		if (connection == null) return null;
+		
+		List<Atividade> allAtividades = new ArrayList<Atividade>();
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement("SELECT codAtividade,nome,duracaoAtividade,dtAtividade, codUsuario"
+					+ " FROM T_HTK_ATIV WHERE codUsuario=" + codUsuario);
+			ResultSet res = stmt.executeQuery();
+
+			while(res.next()) {
+				Atividade ativ = new Atividade(res.getInt("codAtividade"),
+											   res.getString("nome"),
+											   res.getInt("duracaoAtividade"),
+											   res.getDate("dtAtividade"));
+				allAtividades.add(ativ);
+			}
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return allAtividades;
 	}
 
 }

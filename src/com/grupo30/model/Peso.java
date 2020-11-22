@@ -18,6 +18,8 @@ public class Peso {
      * A data em que foi realizada a pesagem
      */
     private Date dtPesagem;
+    
+    public Peso() {}
 
     public Peso(int codPeso, Double valor, Date dtPesagem) {
         this.codPeso = codPeso;
