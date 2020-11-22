@@ -1,4 +1,6 @@
 package com.grupo30.model;
+import com.grupo30.enums.Plano;
+
 import java.util.Date;
 /**
 * Modelo de Pessoa que contém dados pessoais
@@ -64,7 +66,11 @@ public abstract class Pessoa {
 		this.numeroTelefone = numeroTelefone;
 	}
 
-	public Pessoa(){}
+	public Pessoa(int codUsuario, String nome, String sobrenome, String cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone, Plano plano){}
+
+    public Pessoa() {
+
+    }
 
 	public int getCodPessoa() {
 		return codPessoa;

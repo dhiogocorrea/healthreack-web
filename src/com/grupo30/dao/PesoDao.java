@@ -17,7 +17,7 @@ public class PesoDao implements Dao<Peso> {
 	public Peso get(int id) {
 		Peso p = null;
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem FROM peso WHERE codPeso=" + id);
+			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem FROM T_HTK_PESO WHERE codPeso=" + id);
 			ResultSet res = stmt.executeQuery();
 
 			if(res.next()) {
@@ -40,7 +40,7 @@ public class PesoDao implements Dao<Peso> {
 		List<Peso> allPesos = new ArrayList<Peso>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem FROM peso");
+			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem FROM T_HTK_PESO");
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {
@@ -62,7 +62,7 @@ public class PesoDao implements Dao<Peso> {
 		if (connection == null) return -1;
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO peso(codPeso, valor, dtPesagem) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_PESO(codPeso, valor, dtPesagem) VALUES (SQ_PESO.NEXTVAL, ?, ?)");
 			stmt.setDouble(1, t.getValor());
 			stmt.setDate(2, new java.sql.Date(t.getDtPesagem().getTime()));
 
@@ -80,14 +80,39 @@ public class PesoDao implements Dao<Peso> {
 	}
 
 	@Override
-	public boolean update(int id, Peso t) {
-		// TODO Auto-generated method stub
+	public boolean update(int id, Peso peso) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("UPDATE T_HTK_PESO SET valor = ?, dtPesagem = ? WHERE codPeso = ?;");
+			stmt.setDouble(1, peso.getValor());
+			stmt.setDate(2, new java.sql.Date(peso.getDtPesagem().getTime()));
+			stmt.setInt(3, id);
+
+			int res = stmt.executeUpdate();
+			if (res > 0) {
+				System.out.println("Peso atualizado com sucesso.");
+			}
+
+			stmt.close();
+			connection.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		try {
+			PreparedStatement stmt = connection.prepareStatement("DELETE FROM T_HTK_PESO WHERE codPeso=" + id);
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 
@@ -99,7 +124,7 @@ public class PesoDao implements Dao<Peso> {
 		List<Peso> allPesos = new ArrayList<Peso>();
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem,codUsuario FROM peso WHERE codUsuario=" + codUsuario);
+			PreparedStatement stmt = connection.prepareStatement("SELECT codPeso,valor,dtPesagem,codUsuario FROM T_HTK_PESO WHERE codUsuario=" + codUsuario);
 			ResultSet res = stmt.executeQuery();
 
 			while(res.next()) {

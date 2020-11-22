@@ -26,11 +26,11 @@ public class UsuarioDao implements Dao<Usuario>{
          
          Usuario usuario = null;
          try {
-             PreparedStatement stmt = connection.prepareStatement("SELECT cod_usuario,cod_pessoa,nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,dt_registro,dt_assinatura,telefone FROM T_HTK_USU");
+             PreparedStatement stmt = connection.prepareStatement("SELECT codUsuario,cod_pessoa,nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,dt_registro,dt_assinatura,telefone FROM T_HTK_USU");
              ResultSet res = stmt.executeQuery();
 
              if(res.next()) {
-            	 usuario = new Usuario(res.getInt("cod_usuario"), res.getInt("cod_pessoa"), res.getString("nome"), res.getString("sobrenome"), res.getString("cpf"),
+            	 usuario = new Usuario(res.getInt("cod_usuario"), res.getString("nome"), res.getString("sobrenome"), res.getString("cpf"),
                          res.getString("sexo"), res.getString("email"), res.getString("senha"), res.getDate("dt_nascimento"), res.getDate("dt_registro"),
                          res.getDate("dt_assinatura"), res.getInt("telefone"));
             	 
@@ -59,11 +59,11 @@ public class UsuarioDao implements Dao<Usuario>{
         List<Usuario> allUsuarios = new ArrayList<Usuario>();
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT cod_usuario,cod_pessoa,nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,dt_registro,dt_assinatura,telefone FROM T_HTK_USU");
+            PreparedStatement stmt = connection.prepareStatement("SELECT codUsuario,cod_pessoa,nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,dt_registro,dt_assinatura,telefone FROM T_HTK_USU");
             ResultSet res = stmt.executeQuery();
 
             while(res.next()) {
-                Usuario p = new Usuario(res.getInt("cod_usuario"), res.getInt("cod_pessoa"), res.getString("nome"), res.getString("sobrenome"), res.getString("cpf"),
+                Usuario p = new Usuario(res.getInt("codUsuario"), res.getString("nome"), res.getString("sobrenome"), res.getString("cpf"),
                         res.getString("sexo"), res.getString("email"), res.getString("senha"), res.getDate("dt_nascimento"), res.getDate("dt_registro"),
                         res.getDate("dt_assinatura"), res.getInt("telefone"));
                 allUsuarios.add(p);
@@ -83,7 +83,7 @@ public class UsuarioDao implements Dao<Usuario>{
         if (connection == null) return -1;
 
         try {
-            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_USU(cod_pessoa,nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,dt_registro,dt_assinatura,telefone) VALUES (SQ_USUARIO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement stmt = connection.prepareStatement("INSERT INTO T_HTK_USU(codUsuario,nome,sobrenome,cpf,sexo,email,senha,dt_nascimento,dt_registro,dt_assinatura,telefone) VALUES (SQ_USUARIO.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             stmt.setString(1, usuario.getNome());
             stmt.setString(2, usuario.getSobrenome());
             stmt.setString(3, usuario.getCpf());

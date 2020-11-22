@@ -91,14 +91,40 @@ public class AtividadeDao implements Dao<Atividade> {
 	}
 
 	@Override
-	public boolean update(int id, Atividade t) {
-		// TODO Auto-generated method stub
+	public boolean update(int id, Atividade atividade) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("UPDATE T_HTK_ATIV SET nome = ?, duracaoAtividade = ?, dtAtividade = ? WHERE codAtividade = ?;");
+			stmt.setString(1, atividade.getNome());
+			stmt.setInt(2, atividade.getDuracaoAtividade());
+			stmt.setDate(3, new java.sql.Date(atividade.getDtAtividade().getTime()));
+			stmt.setInt(4, id);
+
+			int res = stmt.executeUpdate();
+			if (res > 0) {
+				System.out.println("Atividade atualizada com sucesso.");
+			}
+
+			stmt.close();
+			connection.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		try {
+			PreparedStatement stmt = connection.prepareStatement("DELETE FROM T_HTK_ATIV WHERE codAtividade=" + id);
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 

@@ -97,14 +97,41 @@ public class BatimentoCardiacoDao implements Dao<BatimentoCardiaco> {
 	}
 
 	@Override
-	public boolean update(int id, BatimentoCardiaco t) {
-		// TODO Auto-generated method stub
+	public boolean update(int id, BatimentoCardiaco batimentoCardiaco) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("UPDATE T_HTK_BATIMPROVA SET batimentoMinimo = ?, batimentoMaximo = ?, batimentoMedio = ?, dtMedicao = ? WHERE codBatimentoCardiaco = ?;");
+			stmt.setInt(1, batimentoCardiaco.getBatimentoMinimo());
+			stmt.setInt(2, batimentoCardiaco.getBatimentoMaximo());
+			stmt.setInt(3, batimentoCardiaco.getBatimentoMedio());
+			stmt.setDate(4, new java.sql.Date(batimentoCardiaco.getDtMedicao().getTime()));
+			stmt.setInt(5, id);
+
+			int res = stmt.executeUpdate();
+			if (res > 0) {
+				System.out.println("Batimento Cardíaco atualizado com sucesso.");
+			}
+
+			stmt.close();
+			connection.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 
 	@Override
 	public boolean delete(int id) {
-		// TODO Auto-generated method stub
+		try {
+			PreparedStatement stmt = connection.prepareStatement("DELETE FROM T_HTK_BATIMPROVA WHERE codAlimento=" + id);
+			stmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 

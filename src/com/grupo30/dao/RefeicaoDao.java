@@ -82,11 +82,38 @@ public class RefeicaoDao implements Dao<Refeicao>{
 
     @Override
     public boolean update(int id, Refeicao refeicao) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("UPDATE T_HTK_REFCONSU SET tipoRefeicao = ?, dtRefeicao = ? WHERE codRefeicao = ?;");
+            stmt.setString(1, refeicao.getTipoRefeicao().toString());
+            stmt.setDate(2, new java.sql.Date(refeicao.getDtRefeicao().getTime()));
+            stmt.setInt(3, id);
+
+            int res = stmt.executeUpdate();
+            if (res > 0) {
+                System.out.println("Refeição atualizada com sucesso.");
+            }
+
+            stmt.close();
+            connection.close();
+
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
     @Override
     public boolean delete(int id) {
+        try {
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM T_HTK_REFCONSU WHERE codRefeicao=" + id);
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 

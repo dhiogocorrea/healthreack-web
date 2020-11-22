@@ -94,6 +94,27 @@ public class AlimentoDao implements Dao<Alimento> {
 
 	@Override
 	public boolean update(int id, Alimento alimento) {
+		try {
+			PreparedStatement stmt = connection.prepareStatement("UPDATE T_HTK_ALIM SET nome = ?, qtConsumida = ?, qtCalorias = ?, dtConsumida = ? WHERE codAlimento = ?;");
+			stmt.setString(1, alimento.getNome());
+			stmt.setDouble(2, alimento.getQtConsumida());
+			stmt.setInt(3, alimento.getQtCalorias());
+			stmt.setDate(4, new java.sql.Date(alimento.getDtConsumida().getTime()));
+			stmt.setInt(5, id);
+
+			int res = stmt.executeUpdate();
+			if (res > 0) {
+				System.out.println("Alimento atualizado com sucesso.");
+			}
+
+			stmt.close();
+			connection.close();
+
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 		return false;
 	}
 

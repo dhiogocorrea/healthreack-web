@@ -43,7 +43,7 @@ public class Usuario extends Pessoa {
 		super(codUsuario, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone, plano);
 	}
 
-	public Usuario(){
+	public Usuario(int cod_usuario, String nome, String sobrenome, String cpf, String sexo, String email, String senha, java.sql.Date dt_nascimento, java.sql.Date dt_registro, java.sql.Date dt_assinatura, int telefone){
 		super();
 	}
 
