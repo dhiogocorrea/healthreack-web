@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Início</title>
+	<title>Listagem de refeições</title>
 	<%@ include file="header.jsp" %>
 </head>
 <body>
@@ -13,6 +16,7 @@
     <!-- CONTENT -->
     <div class="container-fluid card-content">
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
+        	<%@ include file="alert.jsp" %>
             <div class="card">
                 <div class="card-body text-center">
                     <h5 class="text-format-secondary"><i class="fas fa-utensils"></i> Refeições</h5>
@@ -26,64 +30,29 @@
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
-                                <th colspan="3" class="text-format-primary">
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <input class="form-control" type="date" value="2020-06-09" id="inputData">
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-
-                                </th>
-                            </tr>
-                            <tr>
+                            	<th scope="col" class="text-format-primary">Data Refeição</th>
                                 <th scope="col" class="text-format-primary">Refeição</th>
                                 <th scope="col" class="text-format-primary">Calorias</th>
                                 <th scope="col" class="text-format-primary">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Café da manhã</td>
-                                <td>275 Kcal</td>
-                                <td>
-                                    <button type="button" style="border: none;" class="text-format-primary"
-                                        data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Almoço</td>
-                                <td>830 Kcal</td>
-                                <td>
-                                    <button type="button" style="border: none;" class="text-format-primary"
-                                        data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Janta</td>
-                                <td>720 Kcal</td>
-                                <td>
-                                    <button type="button" style="border: none;" class="text-format-primary"
-                                        data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </td>
-
-                            </tr>
+	                        <c:forEach items="refeicoes" var="r">
+		                        <tr>
+		                        	<td>${r.dtRefeicao}</td>
+	                                <td>${r.tipoRefeicao}</td>
+	                                <td>${r.calorias} Kcal</td>
+	                                <td>
+	                                    <button type="button" style="border: none;" class="text-format-primary"
+	                                        data-toggle="modal" data-target="#exampleModal">
+	                                        <i class="fas fa-edit"></i>
+	                                    </button>
+	                                    <button type="button" style="border: none;" class="text-format-primary">
+	                                        <i class="fas fa-trash-alt"></i>
+	                                    </button>
+	                                </td>
+	                            </tr>
+	                        </c:forEach>
                         </tbody>
                     </table>
                 </div>

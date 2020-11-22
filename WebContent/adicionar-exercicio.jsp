@@ -23,18 +23,18 @@
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
             <div class="card">
                 <div class="card-body ">
-                    <form>
-                        <div class="form-group row">
-                            <label for="inputData" class="col-sm-2 col-form-label">Email</label>
+                    <form action="atividade" method="post">
+                    	<div class="form-group row">
+                            <label for="inputData" class="col-sm-2 col-form-label">Data</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="date" value="2020-06-01" id="inputData">
+                                <input class="form-control" placeholder="dd/MM/yyyy" type="date" name="dtAtividade" id="inputData">
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
                             <label for="inputExercicio" class="col-sm-2 col-form-label">Exercício</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="inputExercicio">
+                                <select name="nome" class="form-control" id="inputExercicio">
                                     <option>Corrida</option>
                                     <option>Basquete</option>
                                     <option>Natação</option>
@@ -44,9 +44,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="inputCalorias" class="col-sm-2 col-form-label">Calorias</label>
+                            <label for="inputCalorias" class="col-sm-2 col-form-label">Duração</label>
                             <div class="col-sm-10">
-                                <input type="number" value="200" class="form-control" id="inputCalorias">
+                                <input type="number" name="duracaoAtividade" class="form-control" id="inputCalorias">
                             </div>
                         </div>
 

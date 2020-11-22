@@ -12,12 +12,7 @@
 <body>
 	<div class="container-fluid" style="margin-top:2rem;">
         <div class="mx-auto col-md-4 col-sm-12">
-        	<c:if test="${not empty msg }">
-        		<div class="alert alert-success">${msg}</div>
-        	</c:if>
-        	<c:if test="${not empty error }">
-        		<div class="alert alert-error">${error}</div>
-        	</c:if>
+        	<%@ include file="alert.jsp" %>
         	
             <form class="card" action="login" method="post">
                 <div class="card-body text-center">

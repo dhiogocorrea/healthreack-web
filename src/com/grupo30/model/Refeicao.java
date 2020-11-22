@@ -12,13 +12,15 @@ public class Refeicao {
 
     private int codRefeicao;
     private TipoRefeicao tipoRefeicao;
+    private Double calorias;
     private Date dtRefeicao;
     
     public Refeicao() {}
 
-    public Refeicao(int codRefeicao, TipoRefeicao tipoRefeicao, Date dtRefeicao) {
+    public Refeicao(int codRefeicao, TipoRefeicao tipoRefeicao, Double calorias, Date dtRefeicao) {
         this.codRefeicao = codRefeicao;
         this.tipoRefeicao = tipoRefeicao;
+        this.calorias = calorias;
         this.dtRefeicao = dtRefeicao;
     }
     
@@ -47,7 +49,15 @@ public class Refeicao {
         return dtRefeicao;
     }
 
-    public void setDtRefeicao(Date dtRefeicao) {
+    public Double getCalorias() {
+		return calorias;
+	}
+
+	public void setCalorias(Double calorias) {
+		this.calorias = calorias;
+	}
+
+	public void setDtRefeicao(Date dtRefeicao) {
         this.dtRefeicao = dtRefeicao;
     }
 }

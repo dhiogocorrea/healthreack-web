@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Início</title>
+	<title>Listagem de exercícios</title>
 	<%@ include file="header.jsp" %>
 </head>
 <body>
@@ -13,6 +16,7 @@
     <!-- CONTENT -->
     <div class="container-fluid card-content">
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
+        	<%@ include file="alert.jsp" %>
             <div class="card">
                 <div class="card-body text-center">
                     <h5 class="text-format-secondary"><i class="fas fa-running"></i> Exercícios</h5>
@@ -23,21 +27,21 @@
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
             <div class="card">
                 <div class="card-body ">
-                    <h5>Junho</h5>
                     <table class="table table-hover text-center">
                         <thead>
                             <tr>
                                 <th scope="col" class="text-format-primary">Data</th>
                                 <th scope="col" class="text-format-primary">Exercício</th>
-                                <th scope="col" class="text-format-primary">Calorias</th>
+                                <th scope="col" class="text-format-primary">Duração</th>
                                 <th scope="col" class="text-format-primary">Ações</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Segunda, 1 de junho</td>
-                                <td>Corrida</td>
-                                <td>200 Kcal</td>
+                        	<c:forEach items="atividades" var="a">
+                        	<tr>
+                                <td>${a.dtAtividade}</td>
+                                <td>${a.nome}</td>
+                                <td>${a.duracaoAtividade}</td>
                                 <td>
                                     <button type="button" style="border: none;" class="text-format-primary"
                                         data-toggle="modal" data-target="#exampleModal">
@@ -48,36 +52,7 @@
                                     </button>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Quarta, 3 de junho</td>
-                                <td>Natação</td>
-                                <td>530 Kcal</td>
-
-                                <td>
-                                    <button type="button" style="border: none;" class="text-format-primary"
-                                        data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Sábado, 13 de junho</td>
-                                <td>Basquete</td>
-                                <td>800 Kcal</td>
-
-                                <td>
-                                    <button type="button" style="border: none;" class="text-format-primary"
-                                        data-toggle="modal" data-target="#exampleModal">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
-                                    <button type="button" style="border: none;" class="text-format-primary">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                        	</c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -91,7 +66,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edição de peso</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edição de Exercícios</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

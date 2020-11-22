@@ -69,6 +69,7 @@ public class RefeicaoServlet extends HttpServlet {
     	Refeicao refeicao = new Refeicao();
     	refeicao.setDtRefeicao(dtf.parse(request.getParameter("dtRefeicao")));
     	refeicao.setTipoRefeicao(TipoRefeicao.valueOf(request.getParameter("tipoRefeicao")));
+    	refeicao.setCalorias(Double.parseDouble(request.getParameter("calorias")));
     	
     	int inserted = refeicaoDao.insert(refeicao);
     
@@ -87,6 +88,7 @@ public class RefeicaoServlet extends HttpServlet {
     	Refeicao refeicao = new Refeicao();
     	refeicao.setDtRefeicao(dtf.parse(request.getParameter("dtRefeicao")));
     	refeicao.setTipoRefeicao(TipoRefeicao.valueOf(request.getParameter("tipoRefeicao")));
+    	refeicao.setCalorias(Double.parseDouble(request.getParameter("calorias")));
     	
         boolean updated = refeicaoDao.update(codRefeicao, refeicao);
 

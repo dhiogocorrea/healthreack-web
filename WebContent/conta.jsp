@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Início</title>
+	<title>Minha conta</title>
 	<%@ include file="header.jsp" %>
 </head>
 <body>
@@ -22,12 +22,7 @@
         </div>
 
         <div class="mx-auto col-md-6 col-sm-12 card-content" style="margin-top:1rem;">
-        	<c:if test="${not empty msg }">
-        		<div class="alert alert-success">${msg}</div>
-        	</c:if>
-        	<c:if test="${not empty error }">
-        		<div class="alert alert-error">${error}</div>
-        	</c:if>
+        	<%@ include file="alert.jsp" %>
             <form class="card" action="usuario" method="post">
             		<input type="hidden" value="editar" name="acao" />
                     <div class="card-body ">
