@@ -72,11 +72,11 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="refeicao" method="post">
                             <div class="form-group row">
                                 <label for="inputData" class="col-sm-2 col-form-label">Data</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="date" value="2020-06-01" id="inputData">
+                                    <input class="form-control" type="date" name="dtRefeicao" value="${r.dtRefeicao}" id="inputData">
                                 </div>
                             </div>
 

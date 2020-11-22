@@ -75,11 +75,35 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group row">
-                                <label for="inputBatimento" class="col-sm-2 col-form-label">Batimentos</label>
+                        <form action="batimentocardiaco" method="post">
+                        	<input type="hidden" value="editar" name="acao" />
+                        	<input type="hidden" value="${b.codBatimentoCardiaco}" name="codBatimentoCardiaco" />
+                        	
+                        	<div class="form-group row">
+                                <label for="inputBatimento" class="col-sm-2 col-form-label">Data Medição</label>
                                 <div class="col-sm-10">
-                                    <input type="number" value="70" class="form-control" id="inputBatimento">
+                                    <input type="date" value="${b.dtMedicao}" name="dtMedicao" class="form-control" id="inputDtMedicao">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="inputBatimento" class="col-sm-2 col-form-label">Batimento Máximo</label>
+                                <div class="col-sm-10">
+                                    <input type="number" value="${b.batimentoMaximo}" name="batimentoMaximo" class="form-control" id="inputBatimentoMaximo">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="inputBatimento" class="col-sm-2 col-form-label">Batimento Médio</label>
+                                <div class="col-sm-10">
+                                    <input type="number" value="${b.batimentoMedio}" name="batimentoMedio" class="form-control" id="inputBatimentoMedio">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label for="inputBatimento" class="col-sm-2 col-form-label">Batimento Mínimo</label>
+                                <div class="col-sm-10">
+                                    <input type="number" value="${b.batimentoMinimo}" name="batimentoMinimo" class="form-control" id="inputBatimentoMinimo">
                                 </div>
                             </div>
                         </form>
@@ -93,5 +117,4 @@
         </div>
     </div>
 </body>
-
 </html>
