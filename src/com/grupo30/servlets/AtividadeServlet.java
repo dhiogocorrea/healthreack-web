@@ -83,6 +83,9 @@ public class AtividadeServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro inserido com sucesso!");
         }
         
+    	int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("atividades", atividadeDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-exercicios.jsp").forward(request, response);
     }
     
@@ -102,6 +105,9 @@ public class AtividadeServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");
         }
         
+    	int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("atividades", atividadeDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-exercicios.jsp").forward(request, response);
     }
     

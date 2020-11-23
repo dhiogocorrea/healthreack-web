@@ -83,6 +83,9 @@ public class BatimentoCardiacoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro inserido com sucesso!");
         }
         
+        int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("batimentosCardiacos", batimentoCardiacoDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-batimentos.jsp").forward(request, response);
     	
     }
@@ -104,6 +107,9 @@ public class BatimentoCardiacoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");
         }
         
+        int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("batimentosCardiacos", batimentoCardiacoDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-batimentos.jsp").forward(request, response);
     }
     

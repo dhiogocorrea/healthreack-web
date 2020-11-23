@@ -1,3 +1,4 @@
+<%@page import="com.grupo30.enums.TipoRefeicao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -43,7 +44,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="refeicoes" var="r">
+							<c:forEach items="${refeicoes}" var="r">
 								<tr>
 									<td style="display: none;">${r.codRefeicao}</td>
 									<td>${r.dtRefeicao}</td>
@@ -82,8 +83,9 @@
 													</button>
 												</div>
 												<div class="modal-body">
-													<input type="hidden" value="editar" name="acao" /> <input
-														type="hidden" value="${r.codRefeicao}" name="codRefeicao" />
+													<input type="hidden" value="editar" name="acao" />
+													<input type="hidden" value="${codUsuario}" />
+													<input type="hidden" value="${r.codRefeicao}" name="codRefeicao" />
 													<div class="form-group row">
 														<label for="inputData" class="col-sm-2 col-form-label">Data</label>
 														<div class="col-sm-10">
@@ -93,15 +95,15 @@
 													</div>
 
 													<div class="form-group row">
-														<label for="inputExercicio"
+														<label for="tipoRefeicao"
 															class="col-sm-2 col-form-label">Refeição</label>
 														<div class="col-sm-10">
-															<select name="tipoRefeicao" value="${r.tipoRefeicao}"
-																class="form-control" id="inputExercicio">
-																<option>Café da manhã</option>
-																<option>Almoço</option>
-																<option>Lanche</option>
-																<option>Janta</option>
+															<select name="tipoRefeicao"
+																class="form-control" id="tipoRefeicao">
+																<option value="CAFEMANHA" ${r.tipoRefeicao == TipoRefeicao.CAFEMANHA ? 'selected' : ''}>Café da manhã</option>
+																<option value="ALMOCO"  ${r.tipoRefeicao == TipoRefeicao.ALMOCO ? 'selected' : ''}>Almoço</option>
+																<option value="CAFETARDE"  ${r.tipoRefeicao == TipoRefeicao.CAFETARDE ? 'selected' : ''}>Café da Tarde</option>
+																<option value="JANTA"  ${r.tipoRefeicao == TipoRefeicao.JANTA ? 'selected' : ''}>Janta</option>
 															</select>
 														</div>
 													</div>

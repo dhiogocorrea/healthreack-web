@@ -38,13 +38,11 @@ public class Usuario extends Pessoa {
 	 * Plano do usuário
 	 */
     private Plano plano;
+    
+    public Usuario( ) {}
 
 	public Usuario(int codUsuario, String nome, String sobrenome, String cpf, String sexo, String email, String senha, Date dt_nascimento, Date dt_registro, Date dt_assinatura, int telefone, Plano plano) {
-		super(codUsuario, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone, plano);
-	}
-
-	public Usuario(int cod_usuario, String nome, String sobrenome, String cpf, String sexo, String email, String senha, java.sql.Date dt_nascimento, java.sql.Date dt_registro, java.sql.Date dt_assinatura, int telefone){
-		super();
+		super(codUsuario, nome, sobrenome, cpf, sexo, email, senha, dt_nascimento, dt_registro, dt_assinatura, telefone);
 	}
 
 	public int getCodUsuario() {

@@ -24,6 +24,8 @@
             <div class="card">
                 <div class="card-body ">
                     <form action="refeicao" method="post">
+                    	<input type="hidden" value="cadastrar" name="acao" />
+                    	<input type="hidden" value="${codUsuario}" />
                         <div class="form-group row">
                             <label for="inputData" class="col-sm-2 col-form-label">Data</label>
                             <div class="col-sm-10">
@@ -50,7 +52,7 @@
                             </div>
                         </div>
 
-                        <div class="text-right"> <button type="button" style="margin-top: 2rem;"
+                        <div class="text-right"> <button type="submit" style="margin-top: 2rem;"
                                 class="btn btn-primary custom-btn pull-right">Adicionar refeição</button>
                         </div>
                     </form>

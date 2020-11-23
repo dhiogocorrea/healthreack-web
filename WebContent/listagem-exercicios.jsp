@@ -43,7 +43,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="atividades" var="a">
+							<c:forEach items="${atividades}" var="a">
 								<tr>
 									<td style="display: none;">${a.codAtividade}</td>
 									<td>${a.dtAtividade}</td>
@@ -84,6 +84,7 @@
 												<div class="modal-body">
 
 													<input type="hidden" value="editar" name="acao" /> <input
+														type="hidden" value="${codUsuario}" /> <input
 														type="hidden" value="${a.codAtividade}"
 														name="codAtividade" />
 
@@ -100,12 +101,16 @@
 														<label for="inputExercicio"
 															class="col-sm-2 col-form-label">Exercício</label>
 														<div class="col-sm-10">
-															<select name="nome" value="${a.nome}"
-																class="form-control" id="inputExercicio">
-																<option>Corrida</option>
-																<option>Basquete</option>
-																<option>Natação</option>
-																<option>Futebol</option>
+															<select name="nome" class="form-control"
+																id="inputExercicio">
+																<option value="Corrida"
+																	${a.nome.equals("Corrida") ? 'selected' : ''}>Corrida</option>
+																<option value="Basquete"
+																	${a.nome.equals("Basquete") ? 'selected' : ''}>Basquete</option>
+																<option value="Natação"
+																	${a.nome.equals("Natação") ? 'selected' : ''}>Natação</option>
+																<option value="Futebol"
+																	${a.nome.equals("Futebol") ? 'selected' : ''}>Futebol</option>
 															</select>
 														</div>
 													</div>
@@ -113,7 +118,7 @@
 													<div class="form-group row">
 														<label for="inputCalorias" class="col-sm-2 col-form-label">Duração</label>
 														<div class="col-sm-10">
-															<input type="number" value="200" nome="duracaoAtividade"
+															<input type="number" value="200" name="duracaoAtividade"
 																value="${a.duracaoAtividade}" class="form-control"
 																id="inputCalorias">
 														</div>

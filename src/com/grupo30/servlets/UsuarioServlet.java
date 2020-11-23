@@ -27,6 +27,7 @@ public class UsuarioServlet extends HttpServlet {
 	private UsuarioDao usuarioDao;
 	private DateFormat dtf;
 	
+	@Override
 	public void init() throws ServletException {
 		super.init();
 		usuarioDao = new UsuarioDao();
@@ -67,7 +68,9 @@ public class UsuarioServlet extends HttpServlet {
     }
     
     protected void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
-        Usuario usuario = new Usuario(res.getInt("codUsuario"), res.getString("nome"), res.getString("sobrenome"), res.getString("cpf"), res.getString("sexo"), res.getString("email"), res.getString("senha"), res.getDate("dt_nascimento"), res.getDate("dt_registro"), res.getDate("dt_assinatura"), res.getInt("telefone"));
+    	System.out.println("tentando criar um usuario ...");
+    	
+        Usuario usuario = new Usuario();
         usuario.setNome(request.getParameter("nome"));
         usuario.setSobrenome(request.getParameter("sobrenome"));
         usuario.setDtNascimento(dtf.parse(request.getParameter("dtNascimento")));
@@ -96,7 +99,7 @@ public class UsuarioServlet extends HttpServlet {
     protected void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
         int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
     	
-    	Usuario usuario = new Usuario(res.getInt("codUsSuario"), res.getString("nome"), res.getString("sobrenome"), res.getString("cpf"), res.getString("sexo"), res.getString("email"), res.getString("senha"), res.getDate("dt_nascimento"), res.getDate("dt_registro"), res.getDate("dt_assinatura"), res.getInt("telefone"));
+    	Usuario usuario = new Usuario();
         usuario.setNome(request.getParameter("nome"));
         usuario.setSobrenome(request.getParameter("sobrenome"));
         usuario.setDtNascimento(dtf.parse(request.getParameter("dtNascimento")));

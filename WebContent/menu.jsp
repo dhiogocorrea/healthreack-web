@@ -20,9 +20,11 @@
                         <a class="dropdown-item text-format-primary" href="adicionar-refeicao.jsp"><i
                                 class="fas fa-plus-square"></i>
                             Adicionar refeição</a>
-                        <a class="dropdown-item text-format-primary" href="listagem-refeicoes.jsp"><i
-                                class="fas fa-clipboard-list"></i>
-                            Mostrar refeições</a>
+                        <form id="ref-form" action="refeicao" method="get">
+	                        <a class="dropdown-item text-format-primary" onclick="document.getElementById('ref-form').submit()"><i
+	                                class="fas fa-clipboard-list"></i>
+	                            Mostrar refeições</a>
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -33,9 +35,12 @@
                         <a class="dropdown-item text-format-primary" href="adicionar-exercicio.jsp"><i
                                 class="fas fa-plus-square"></i>
                             Adicionar exercício</a>
-                        <a class="dropdown-item text-format-primary" href="listagem-exercicios.jsp"><i
+                        
+                        <form id="exercicios-form" action="atividade" method="get">
+                        	<a class="dropdown-item text-format-primary" onclick="document.getElementById('exercicios-form').submit()"><i
                                 class="fas fa-clipboard-list"></i>
                             Mostrar exercícios </a>
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -46,9 +51,12 @@
                         <a class="dropdown-item text-format-primary" href="adicionar-peso.jsp"><i
                                 class="fas fa-plus-square"></i>
                             Adicionar peso</a>
-                        <a class="dropdown-item text-format-primary" href="listagem-pesos.jsp"><i
+                        
+                        <form id="peso-form" action="atividade" method="get">
+                        	<a class="dropdown-item text-format-primary" onclick="document.getElementById('peso-form').submit()"><i
                                 class="fas fa-clipboard-list"></i>
                             Mostrar pesos</a>
+                        </form>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -59,9 +67,12 @@
                         <a class="dropdown-item text-format-primary" href="adicionar-batimento.jsp"><i
                                 class="fas fa-plus-square"></i>
                             Adicionar batimento</a>
-                        <a class="dropdown-item text-format-primary" href="listagem-batimentos.jsp"><i
+                        
+                        <form id="batimentos-form" action="atividade" method="get">
+                        	<a class="dropdown-item text-format-primary" onclick="document.getElementById('batimentos-form').submit()"><i
                                 class="fas fa-clipboard-list"></i>
                             Mostrar batimentos</a>
+                        </form>
                     </div>
                 </li>
             </ul>
@@ -75,9 +86,11 @@
                             class="fas fa-user"></i>
                         Perfil</strong></a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item text-format-primary" href="conta.jsp"><i class="fas fa-address-card"></i>
-                        Sua
-                        conta</a>
+                	<form id="conta-form" action="usuario" method="get">
+                		<input type="hidden" value="${codUsuario}" />
+                    	<a class="dropdown-item text-format-primary" href="conta.jsp"><i class="fas fa-address-card"></i>
+                        Sua conta</a>
+                    </form>
                     <a class="dropdown-item text-format-primary" href="alterar-senha.jsp"><i class="fas fa-lock"></i>
                         Alterar senha</a>
                     <a class="dropdown-item text-format-primary" href="mailto:guilherme.santos97@outlook.com.br"><i

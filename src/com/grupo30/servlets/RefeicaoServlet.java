@@ -79,6 +79,9 @@ public class RefeicaoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro inserido com sucesso!");
         }
         
+        int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("refeicoes", refeicaoDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-refeicoes.jsp").forward(request, response);
     }
     
@@ -98,6 +101,9 @@ public class RefeicaoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");
         }
         
+        int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("refeicoes", refeicaoDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-refeicoes.jsp").forward(request, response);
     }
     

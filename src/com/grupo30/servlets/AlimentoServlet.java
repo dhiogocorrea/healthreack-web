@@ -79,6 +79,9 @@ public class AlimentoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro inserido com sucesso!");
         }
         
+        int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("alimentos", alimentoDao.getByUser(codUsuario));
+        
         request.getRequestDispatcher("listagem-refeicoes.jsp").forward(request, response);
     }
     
@@ -98,6 +101,9 @@ public class AlimentoServlet extends HttpServlet {
         } else {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");
         }
+        
+        int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("alimentos", alimentoDao.getByUser(codUsuario));
         
         request.getRequestDispatcher("listagem-refeicoes.jsp").forward(request, response);
     }

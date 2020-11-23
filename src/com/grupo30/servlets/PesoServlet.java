@@ -79,6 +79,9 @@ public class PesoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro inserido com sucesso!");
         }
         
+    	int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("pesos", pesoDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-pesos.jsp").forward(request, response);
     	
     }
@@ -98,6 +101,9 @@ public class PesoServlet extends HttpServlet {
         	request.setAttribute("msg", "Cadastro atualizado com sucesso!");
         }
         
+    	int codUsuario = Integer.parseInt(request.getParameter("codUsuario"));
+		request.setAttribute("pesos", pesoDao.getByUser(codUsuario));
+		
         request.getRequestDispatcher("listagem-pesos.jsp").forward(request, response);
     }
     

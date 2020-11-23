@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -12,8 +13,7 @@
 <body>
 	<div class="container-fluid" style="margin-top:2rem;">
         <div class="mx-auto col-md-4 col-sm-12">
-        	<%@ include file="alert.jsp" %>
-        	
+
             <form class="card" action="login" method="post">
                 <div class="card-body text-center">
                     <img src="resources/img/logo.png" width="72" height="72">
@@ -35,8 +35,7 @@
                                     aria-describedby="desc-pass">
                             </div>
                         </div>
-                        <button style="margin-top: 1.5rem;" type="button" class="btn col-5 custom-btn"
-                            type="submit">Entrar</button>
+                        <button type="submit" style="margin-top: 1.5rem;" class="btn col-5 custom-btn">Entrar</button>
                         <p class="cadastro">Não possui conta? <a href="cadastro.jsp">Cadastra-se</a>.</p>
                    </div>
             </form>

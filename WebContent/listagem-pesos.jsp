@@ -43,7 +43,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="pesos" var="p">
+							<c:forEach items="${pesos}" var="p">
 								<tr>
 									<td style="display: none;">${p.codPeso}</td>
 									<td>${p.dtPesagem}</td>
@@ -81,8 +81,9 @@
 													</button>
 												</div>
 												<div class="modal-body">
-													<input type="hidden" value="editar" name="acao" /> <input
-														type="hidden" value="${p.codPeso}" name="codPeso" />
+													<input type="hidden" value="editar" name="acao" />
+													<input type="hidden" value="${codUsuario}" />
+													<input type="hidden" value="${p.codPeso}" name="codPeso" />
 													<div class="form-group row">
 														<label for="inputData" class="col-sm-2 col-form-label">Data</label>
 														<div class="col-sm-10">

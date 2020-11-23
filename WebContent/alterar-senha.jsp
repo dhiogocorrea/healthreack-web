@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="text-right">
-                        <button type="button" style="margin-top: 2rem;"
+                        <button type="submit" style="margin-top: 2rem;"
                                 class="btn btn-primary custom-btn pull-right">Salvar senha
                         </button>
                     </div>

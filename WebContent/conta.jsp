@@ -25,6 +25,7 @@
         	<%@ include file="alert.jsp" %>
             <form class="card" action="usuario" method="post">
             		<input type="hidden" value="editar" name="acao" />
+            		<input type="hidden" value="${codUsuario}" />
                     <div class="card-body ">
                         <div class="form-group row">
                             <label for="labelNome" class="col-sm-3 col-form-label">Nome:</label>
@@ -65,8 +66,8 @@
                             <label for="labelSexo" class="col-sm-3 col-form-label">Sexo</label>
                             <div class="col-sm-9">
                                 <select value="${user.sexo} class="form-control" id="labelSexo">
-                                    <option>Masculino</option>
-                                    <option>Feminino</option>
+                                    <option value="Masculino" ${user.sexo.equals("Masculino") ? 'selected' : ''}>Masculino</option>
+                                    <option value="Feminino" ${user.sexo.equals("Feminino") ? 'selected' : ''}>Feminino</option>
                                 </select>
                             </div>
                         </div>

@@ -44,7 +44,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="batimentosCardiacos" var="b">
+							<c:forEach items="${batimentosCardiacos}" var="b">
 								<tr>
 									<td style="display: none;">${b.codBatimentoCardiaco}</td>
 									<td>${b.dtMedicao}</td>
@@ -87,6 +87,7 @@
 												</div>
 												<div class="modal-body">
 													<input type="hidden" value="editar" name="acao" />
+													<input type="hidden" value="${codUsuario}" />
 													<input
 														type="hidden" value="${b.codBatimentoCardiaco}"
 														name="codBatimentoCardiaco" />
